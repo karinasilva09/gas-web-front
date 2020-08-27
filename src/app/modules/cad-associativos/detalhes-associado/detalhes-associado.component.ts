@@ -42,7 +42,7 @@ export class DetalhesAssociadoComponent implements OnInit {
      .subscribe(res => {
          this.associado = res;
          this.formNovoUsuario.get('cpf').setValue(this.associado.docCPF);
-         this.formNovoUsuario.get('matricula').setValue(this.associado.matriculaAssociado);
+         this.formNovoUsuario.get('matricula').setValue(this.associado.matriculaEmpresaAssociada);
          this.formNovoUsuario.get('nome').setValue(this.associado.nome);
        }, (err) => {
          console.log(err);

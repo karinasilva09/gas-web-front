@@ -7,7 +7,7 @@
     <table mat-table [dataSource]="dataSource" fxFlex="100" class="full_table_list" matSort>
         <ng-container matColumnDef="siape">
           <th class="pointer" mat-header-cell *matHeaderCellDef mat-sort-header> SIAPE </th>
-          <td class="pointer" mat-cell *matCellDef="let element" (click)="detalhesAssociado(element)"> {{element.matriculaAssociado}} </td>
+          <td class="pointer" mat-cell *matCellDef="let element" (click)="detalhesAssociado(element)"> {{element.matriculaEmpresaAssociada}} </td>
         </ng-container>
       
         <ng-container matColumnDef="nome">

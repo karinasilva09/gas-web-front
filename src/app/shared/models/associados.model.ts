@@ -17,3 +17,8 @@ export class Associados {
     celular: string;
     eMail: string;
 }
+
+export class Situacoes {
+    id: number;
+    
+}
