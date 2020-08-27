@@ -7,22 +7,49 @@ import { ListaAssociadosComponent } from './modules/cad-associativos/lista-assoc
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
-import {MatTableModule} from '@angular/material/table';
+import {AssociadosService} from './core/services/associados.service';
+
+import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
+import { DetalhesAssociadoComponent } from './modules/cad-associativos/detalhes-associado/detalhes-associado.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { NgxMaskModule } from 'ngx-mask'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaAssociadosComponent
+    ListaAssociadosComponent,
+    DetalhesAssociadoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    NgxMaskModule.forRoot(),
 
-    MatTableModule
+    HttpClientModule,
+
+    MatTableModule,
+    MatPaginatorModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatSortModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AssociadosService
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DetalhesAssociadoComponent
+  ]
 })
 export class AppModule { }

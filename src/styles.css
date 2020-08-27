@@ -2,3 +2,16 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.pointer {
+    cursor: pointer;
+}
+
+/*css global tabela*/
+.full_table_list{border-collapse: collapse;}
+ 
+/*Definido cor das linhas pares*/
+.full_table_list tr:nth-child(even) {background: #FFF}
+ 
+/*Definindo cor das Linhas impáres*/
+.full_table_list tr:nth-child(odd) {background: #EEE} 

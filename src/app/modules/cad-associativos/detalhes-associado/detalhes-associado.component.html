@@ -1,0 +1,26 @@
+<div fxLayout="column">
+    <h2 mat-dialog-title>Detalhes do Associado</h2>
+    <mat-dialog-content class="mat-typography" fxLayout="column" fxFlex="100">
+        <form [formGroup]="formNovoUsuario" fxLayout="column">
+            <div fxLayout="row" fxFlex="100" fxLayoutGap="10px">
+                <mat-form-field appearance="outline" fxFlex="20">
+                    <mat-label>CPF</mat-label>
+                    <input matInput formControlName="cpf" mask="000.000.000-00" required>
+                    <mat-error>Preencha o CPF</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="10">
+                    <mat-label>Matrícula</mat-label>
+                    <input matInput formControlName="matricula" required>
+                    <mat-error>Preencha a Matrícula</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="70">
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="nome" required>
+                    <mat-error>Preencha o nome</mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-dialog-content>
+</div>
