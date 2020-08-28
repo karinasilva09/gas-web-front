@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AssociadosService } from 'src/app/core/services/associados.service';
-import { Associados } from 'src/app/shared/models/associados.model';
+import { Associados, Situacoes } from 'src/app/shared/models/associados.model';
 
 @Component({
   selector: 'app-detalhes-associado',
@@ -14,6 +14,8 @@ export class DetalhesAssociadoComponent implements OnInit {
   formNovoUsuario: FormGroup;
   id: number = 0;
   associado: Associados = new Associados();
+  situacoes: Situacoes[] = [];
+  situacao: Situacoes = new Situacoes();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,7 +35,8 @@ export class DetalhesAssociadoComponent implements OnInit {
     this.formNovoUsuario = this.formBuilder.group({
       cpf: [''],
       nome: [''],
-      matricula: ['']
+      matricula: [''],
+      situacao: ['']
     });
   }
 
@@ -44,6 +47,7 @@ export class DetalhesAssociadoComponent implements OnInit {
          this.formNovoUsuario.get('cpf').setValue(this.associado.docCPF);
          this.formNovoUsuario.get('matricula').setValue(this.associado.matriculaEmpresaAssociada);
          this.formNovoUsuario.get('nome').setValue(this.associado.nome);
+         this.buscaSituacaoPorId();
        }, (err) => {
          console.log(err);
        }
@@ -53,11 +57,23 @@ export class DetalhesAssociadoComponent implements OnInit {
   populaSituacoes(): void {
     this.api.getSituacoes()
      .subscribe(res => {
-         this.associado = res;
+         this.situacoes = res;
        }, (err) => {
          console.log(err);
        }
      );
+  }
+
+  buscaSituacaoPorId(): void {
+    const id = Number(this.associado.situacao);
+    this.api.getSituacaoById(id)
+    .subscribe(res => {
+      this.situacao = res;
+      this.formNovoUsuario.get('situacao').setValue(this.situacao.descricao);
+    }, (err) => {
+      console.log(err);
+    }
+  );
   }
 
 }

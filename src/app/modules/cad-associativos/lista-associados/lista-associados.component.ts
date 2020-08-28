@@ -48,13 +48,6 @@ export class ListaAssociadosComponent implements OnInit {
       width: '90%',
       data: {id: element.id}
     });
-    // this.api.getAssociadoById(element.id)
-    // .subscribe(res => {
-    //     this.associado = res;
-    //   }, (err) => {
-    //     console.log(err);
-    //   }
-    // );
   }
 
   applyFilter(event: Event) {

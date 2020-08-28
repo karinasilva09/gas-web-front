@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Associados } from '../../shared/models/associados.model';
+import { Associados, Situacoes } from '../../shared/models/associados.model';
 import { catchError, tap, map } from 'rxjs/operators';
 import { PQA_API } from '../../config/app.api';
 
@@ -9,7 +9,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const apiUrl = `${PQA_API}/associados`;
+const apiUrl = `${PQA_API}associados`;
 
 @Injectable({
   providedIn: 'root'
@@ -34,11 +34,19 @@ export class AssociadosService {
     );
   }
 
-  getSituacoes(): Observable<Associados>{
+  getSituacoes(): Observable<Situacoes[]>{
     return this.http.get<any>(apiUrl + `/situacoes`)
     .pipe(
       tap(_ => console.log(``)),
-      catchError(this.handleError<Associados>(``))
+      catchError(this.handleError<Situacoes[]>(``))
+    );
+  }
+
+  getSituacaoById(id): Observable<Situacoes>{
+    return this.http.get<any>(apiUrl + `/situacao/${id}`)
+    .pipe(
+      tap(_ => console.log(``)),
+      catchError(this.handleError<Situacoes>(``))
     );
   }
 

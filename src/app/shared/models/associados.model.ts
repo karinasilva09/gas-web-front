@@ -20,5 +20,9 @@ export class Associados {
 
 export class Situacoes {
     id: number;
-    
+    idEmpresaControlada: number;
+    descricao: string;
+    dataCadastro: Date;
+    dataAlteracao: Date;
+    idUsuarioCad: number;
 }

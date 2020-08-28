@@ -15,11 +15,20 @@
                     <mat-error>Preencha a Matrícula</mat-error>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline" fxFlex="70">
+                <mat-form-field appearance="outline" fxFlex="60">
                     <mat-label>Nome</mat-label>
                     <input matInput formControlName="nome" required>
                     <mat-error>Preencha o nome</mat-error>
                 </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="10">
+                    <mat-label>Situação</mat-label>
+                    <mat-select formControlName="situacao">
+                      <mat-option *ngFor="let situacao of situacoes" [value]="situacao.descricao">
+                        {{situacao.descricao}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
             </div>
         </form>
     </mat-dialog-content>
