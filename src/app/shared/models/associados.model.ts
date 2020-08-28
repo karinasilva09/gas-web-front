@@ -26,3 +26,11 @@ export class Situacoes {
     dataAlteracao: Date;
     idUsuarioCad: number;
 }
+
+export class Grupos {
+  id: number;
+  idEmpresaControlada: number;
+  nomeGrupo: string;
+  dataCadastro: string;
+  dataAlteracao: string;
+}
